@@ -11,6 +11,7 @@ public class ValueGenerator {
 
 
         ValueGenerateStrategy strategy = ValueGenerateStrategyBuilder.getStrategy(type);
+        System.out.println("hello world");
 
         return strategy.getValue(rule);
     }
