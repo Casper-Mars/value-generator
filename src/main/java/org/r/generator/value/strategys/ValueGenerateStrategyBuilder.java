@@ -1,6 +1,5 @@
 package org.r.generator.value.strategys;
 
-import org.r.container.vue.service.strategys.ValueGenerateStrategy;
 
 public class ValueGenerateStrategyBuilder {
 
