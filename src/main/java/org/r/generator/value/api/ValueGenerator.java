@@ -46,6 +46,12 @@ public class ValueGenerator {
     }
 
 
+    /**
+     * 遍历数据模型产生值
+     *
+     * @param model 数据模型集合
+     * @return
+     */
     private Map<String, Object> generateValue(List<DataModelBO> model) {
         Map<String, Object> result = new HashMap<>();
         if (!CollectionTool.isEmpty(model)) {
