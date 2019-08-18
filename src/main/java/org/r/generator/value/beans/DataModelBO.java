@@ -28,6 +28,11 @@ public class DataModelBO {
     private RuleBO rule;
 
     /**
+     * 是否需要生成
+     */
+    private boolean isNeed;
+
+    /**
      * 子属性
      */
     private List<DataModelBO> children;
