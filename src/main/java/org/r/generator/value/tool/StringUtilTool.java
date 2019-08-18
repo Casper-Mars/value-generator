@@ -45,6 +45,12 @@ public class StringUtilTool {
     }
 
 
+    /**
+     * 获取符合指定的正则表达式的字符串
+     *
+     * @param pattern 正则表达式
+     * @return
+     */
     public static String getRegString(String pattern) {
 
         List<String> regString0 = getRegString0(pattern, true);

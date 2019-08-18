@@ -38,6 +38,9 @@ public class ValueGenerator {
     public Object getValue(String propertyName, String type, RuleBO rule) {
 
         ValueGenerateStrategy strategy = ValueGenerateStrategyBuilder.getStrategy(type);
+        if (strategy == null) {
+            return null;
+        }
         if (rule != null) {
             return strategy.getValue(rule);
         } else {

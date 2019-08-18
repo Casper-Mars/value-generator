@@ -1,5 +1,6 @@
 package org.r.generator.value.api;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.r.generator.value.beans.DataModelBO;
 import org.r.generator.value.beans.RuleBO;
@@ -15,14 +16,14 @@ public class ValueGeneratorTest {
     public void getValue() {
 
         ValueGenerator valueGenerator = new ValueGenerator();
-        Map<String, Object> value = valueGenerator.getValue(getDataModel());
-
+        DataModelBO modelBO = getDataModel();
+        Assert.assertNotNull("model is null",modelBO);
+        Map<String, Object> value = valueGenerator.getValue(modelBO);
 
     }
 
 
     private DataModelBO getDataModel() {
-
         DataModelBO target = new DataModelBO();
         target.setName("data");
         target.setType("Object");
@@ -39,6 +40,24 @@ public class ValueGeneratorTest {
         modelBO2.setType("Integer");
         modelBO2.setRule(RuleBO.builder().maxValue(100).build());
         children.add(modelBO2);
+
+        DataModelBO modelBO3 = new DataModelBO();
+        modelBO3.setName("amount");
+        modelBO3.setType("BigDecimal");
+        modelBO3.setRule(RuleBO.builder().maxValue(100).build());
+        children.add(modelBO3);
+
+        DataModelBO modelBO4 = new DataModelBO();
+        modelBO4.setName("address");
+        modelBO4.setType("AddressDTO");
+        List<DataModelBO> children2 = new ArrayList<>();
+        DataModelBO modelBO5 = new DataModelBO();
+        modelBO5.setName("city");
+        modelBO5.setType("String");
+        modelBO5.setRule(RuleBO.builder().Pattern("([a-z]|[A-Z]){5,10}").build());
+        children2.add(modelBO5);
+        modelBO4.setChildren(children2);
+        children.add(modelBO4);
 
 
         target.setChildren(children);

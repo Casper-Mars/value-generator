@@ -13,7 +13,7 @@ public class IntegerValueGenerateStrategy implements ValueGenerateStrategy<Integ
      */
     @Override
     public Integer getValue() {
-        return UtilTool.getRandomInteger(100);
+        return UtilTool.getRandomInteger(0, 100);
     }
 
     /**
@@ -35,6 +35,10 @@ public class IntegerValueGenerateStrategy implements ValueGenerateStrategy<Integ
      */
     @Override
     public Integer getValue(RuleBO rule) {
-        return null;
+
+        if (rule.getMaxValue() != null && rule.getMinValue() != null && rule.getMaxValue() > rule.getMinValue()) {
+            return UtilTool.getRandomInteger(rule.getMinValue(), rule.getMaxValue());
+        }
+        return getValue();
     }
 }
