@@ -3,30 +3,27 @@ package org.r.generator.value.beans;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @Builder
 public class RuleBO {
 
 
     /**
-     * 长度
-     */
-    private Integer length;
-
-    /**
      * 字符串模式
      */
-    private String Pattern;
+    private String pattern;
 
     /**
      * 最大值
      */
-    private Integer maxValue;
+    private BigDecimal maxValue;
 
     /**
      * 最小值
      */
-    private Integer minValue = 0;
+    private BigDecimal minValue = BigDecimal.ZERO;
 
 
 }

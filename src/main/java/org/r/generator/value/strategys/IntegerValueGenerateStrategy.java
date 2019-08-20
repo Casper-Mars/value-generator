@@ -36,8 +36,8 @@ public class IntegerValueGenerateStrategy implements ValueGenerateStrategy<Integ
     @Override
     public Integer getValue(RuleBO rule) {
 
-        if (rule.getMaxValue() != null && rule.getMinValue() != null && rule.getMaxValue() > rule.getMinValue()) {
-            return UtilTool.getRandomInteger(rule.getMinValue(), rule.getMaxValue());
+        if (rule.getMaxValue() != null && rule.getMinValue() != null && rule.getMaxValue().compareTo(rule.getMinValue()) > 0) {
+            return UtilTool.getRandomInteger(rule.getMinValue().intValue(), rule.getMaxValue().intValue());
         }
         return getValue();
     }

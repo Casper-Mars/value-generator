@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.r.generator.value.beans.DataModelBO;
 import org.r.generator.value.beans.RuleBO;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,19 +33,19 @@ public class ValueGeneratorTest {
         DataModelBO modelBO1 = new DataModelBO();
         modelBO1.setName("name");
         modelBO1.setType("String");
-        modelBO1.setRule(RuleBO.builder().Pattern("([a-z]|[A-Z]){5,10}").build());
+        modelBO1.setRule(RuleBO.builder().pattern("([a-z]|[A-Z]){5,10}").build());
         children.add(modelBO1);
 
         DataModelBO modelBO2 = new DataModelBO();
         modelBO2.setName("age");
         modelBO2.setType("Integer");
-        modelBO2.setRule(RuleBO.builder().maxValue(100).build());
+        modelBO2.setRule(RuleBO.builder().maxValue(new BigDecimal(100)).build());
         children.add(modelBO2);
 
         DataModelBO modelBO3 = new DataModelBO();
         modelBO3.setName("amount");
         modelBO3.setType("BigDecimal");
-        modelBO3.setRule(RuleBO.builder().maxValue(100).build());
+        modelBO3.setRule(RuleBO.builder().maxValue(new BigDecimal(100)).build());
         children.add(modelBO3);
 
         DataModelBO modelBO4 = new DataModelBO();
@@ -54,7 +55,7 @@ public class ValueGeneratorTest {
         DataModelBO modelBO5 = new DataModelBO();
         modelBO5.setName("city");
         modelBO5.setType("String");
-        modelBO5.setRule(RuleBO.builder().Pattern("([a-z]|[A-Z]){5,10}").build());
+        modelBO5.setRule(RuleBO.builder().pattern("([a-z]|[A-Z]){5,10}").build());
         children2.add(modelBO5);
         modelBO4.setChildren(children2);
         children.add(modelBO4);
