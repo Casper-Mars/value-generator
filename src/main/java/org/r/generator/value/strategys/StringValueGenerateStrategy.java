@@ -38,6 +38,9 @@ public class StringValueGenerateStrategy implements ValueGenerateStrategy<String
      */
     @Override
     public String getValue(RuleBO rule) {
+        if (rule == null) {
+            return getValue();
+        }
         if (StringUtilTool.isEmpty(rule.getPattern())) {
             return StringUtilTool.getRandomString(20);
         } else {

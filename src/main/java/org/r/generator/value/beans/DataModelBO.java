@@ -30,7 +30,12 @@ public class DataModelBO {
     /**
      * 是否需要生成
      */
-    private boolean isNeed;
+    private boolean isIgnore;
+
+    /**
+     * 是否是数组
+     */
+    private boolean isArray;
 
     /**
      * 子属性

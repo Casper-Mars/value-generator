@@ -28,7 +28,7 @@ public interface ValueGenerateStrategy<T> {
      * @return
      */
     default T getValue(RuleBO rule) {
-        throw new RuntimeException("specify the rule");
+        return getValue();
     }
 
 

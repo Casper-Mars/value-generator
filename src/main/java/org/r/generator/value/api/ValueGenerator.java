@@ -2,6 +2,7 @@ package org.r.generator.value.api;
 
 import org.r.generator.value.beans.DataModelBO;
 import org.r.generator.value.beans.RuleBO;
+import org.r.generator.value.service.GenerateService;
 import org.r.generator.value.strategys.ValueGenerateStrategy;
 import org.r.generator.value.strategys.ValueGenerateStrategyBuilder;
 import org.r.generator.value.tool.CollectionTool;
@@ -23,7 +24,8 @@ public class ValueGenerator {
         if (model == null) {
             return result;
         }
-        result.put(model.getName(), generateValue(model.getChildren()));
+        GenerateService generateService = GenerateService.getInstance();
+        result.put(model.getName(), generateService.getValue(model));
         return result;
     }
 

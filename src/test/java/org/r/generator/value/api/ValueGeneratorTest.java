@@ -18,7 +18,7 @@ public class ValueGeneratorTest {
 
         ValueGenerator valueGenerator = new ValueGenerator();
         DataModelBO modelBO = getDataModel();
-        Assert.assertNotNull("model is null",modelBO);
+        Assert.assertNotNull("model is null", modelBO);
         Map<String, Object> value = valueGenerator.getValue(modelBO);
 
     }
@@ -33,12 +33,14 @@ public class ValueGeneratorTest {
         DataModelBO modelBO1 = new DataModelBO();
         modelBO1.setName("name");
         modelBO1.setType("String");
+        modelBO1.setArray(true);
         modelBO1.setRule(RuleBO.builder().pattern("([a-z]|[A-Z]){5,10}").build());
         children.add(modelBO1);
 
         DataModelBO modelBO2 = new DataModelBO();
         modelBO2.setName("age");
         modelBO2.setType("Integer");
+        modelBO2.setIgnore(true);
         modelBO2.setRule(RuleBO.builder().maxValue(new BigDecimal(100)).build());
         children.add(modelBO2);
 
