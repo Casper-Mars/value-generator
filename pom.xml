@@ -6,7 +6,21 @@
 
     <groupId>org.r.generator</groupId>
     <artifactId>value</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
+
+    <properties>
+        <maven-url>http://114.55.253.170:8081</maven-url>
+
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>casper-local</id>
+            <name>casper-local</name>
+            <url>${maven-url}/repository/casper-local/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
