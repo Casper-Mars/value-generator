@@ -34,6 +34,6 @@ public class LongValueGenerateStrategy implements ValueGenerateStrategy<Long> {
      */
     @Override
     public Long getValue(RuleBO rule) {
-        return null;
+        return UtilTool.getRandomLong();
     }
 }
